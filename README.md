@@ -40,6 +40,7 @@ Day-to-day users can begin with [End-to-End Workflows](15-end-to-end-workflows.m
 | [16 - Status Reference](16-status-reference.md) | Meaning and allowed next action for every major status |
 | [17 - Glossary](17-glossary.md) | Plain-language definitions of accounting, GST, inventory, site, workforce, and system terms |
 | [18 - Troubleshooting and FAQ](18-troubleshooting-and-faq.md) | Common user problems, causes, checks, and safe corrections |
+| [19 - Customer and Supplier Statements](19-customer-and-supplier-statements.md) | Live balances, financial dashboards, date-range statements, ledgers, history, print, and CSV export |
 
 ## How Field Requirements Are Written
 

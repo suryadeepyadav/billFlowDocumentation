@@ -110,21 +110,24 @@ Payment status is calculated from active allocations. Do not edit it manually.
 
 ## View Customer Outstanding
 
-Use the Customer Outstanding action on an invoice to see:
+Use **Customer dashboard** from the Customer List to see:
 
 - Customer
-- Total invoiced
-- Total allocated/received against invoices
-- Outstanding
-- Open invoice number, date, due date, balance, and payment status
+- Financial-year/date-range opening, invoiced, received, and closing balance
+- Current receivable or customer advance balance
+- Paid, partially paid, and unpaid invoice counts
+- Invoice history, receipt history, and a running statement ledger
+- Print and CSV export for the complete selected statement
 
-The outstanding amount includes the customer's Opening balance plus open posted invoice balances.
+The current customer balance is calculated as:
 
-Important current behavior:
+`Opening balance + Posted invoice totals - Posted receipt totals`
 
-- Unallocated receipt advances are tracked on receipts and reports but are not automatically subtracted from the Customer Outstanding dialog.
+- Unallocated receipt advances reduce the Customer's overall account balance, even though they do not change a specific invoice's payment status.
 - Receipt allocation supports posted invoices, not a separate opening-balance settlement row.
 - Plan migrated opening balances carefully and allocate incoming receipts to invoices whenever possible.
+
+See [Customer and Supplier Statements](19-customer-and-supplier-statements.md) for the complete dashboard and ledger behavior.
 
 ## Print an Invoice
 

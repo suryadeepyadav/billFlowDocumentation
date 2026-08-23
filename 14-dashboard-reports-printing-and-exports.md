@@ -188,11 +188,13 @@ Shows Payment number/date, Supplier, Site, amount, allocated amount, unallocated
 
 ### Customer Outstanding
 
-Shows Customer, invoiced amount, received amount, opening balance, and current outstanding. This is a current-balance report and has no report date range.
+Shows Customer, invoiced amount, received amount, opening balance, Customer advance, and current outstanding. It uses all posted receipt amounts, including unallocated Customer advances. This is a current-balance report and has no report date range.
 
 ### Supplier Outstanding
 
 Shows Supplier, purchased amount, paid amount, opening balance, advance amount, and current outstanding. This is a current-balance report and has no report date range.
+
+For one party's Financial Year/date-range balance, document history, and debit/credit ledger, use the Customer or Supplier dashboard from the master list. See [Customer and Supplier Statements](19-customer-and-supplier-statements.md).
 
 ### Stock
 

@@ -133,7 +133,7 @@ Effects:
 - Invoice becomes Partially Paid or Paid.
 - Any remainder becomes unallocated Customer advance.
 
-Customer advances are not automatically allocated later in the current Receipt UI. Prefer allocating correctly during entry and monitor unallocated receipt alerts/reports.
+Customer advances are not automatically allocated later in the current Receipt UI. They reduce the Customer's overall account balance but do not change a specific Invoice payment status. Prefer allocating correctly during entry and monitor unallocated receipt alerts/reports.
 
 ## Step 6: Monitor Collection
 
@@ -145,7 +145,7 @@ Use:
 - Receipts report
 - Invoice payment status
 
-`Outstanding = Opening Balance + Posted Invoice balances`. An unallocated receipt is tracked separately and is not automatically netted into an Invoice balance.
+`Customer account balance = Opening Balance + Posted Invoice totals - Posted Receipt totals`. An unallocated receipt is not automatically netted into an Invoice balance, but it does reduce the overall Customer account balance and may appear as Customer advance.
 
 # Direct Invoice-to-Receipt Workflow
 

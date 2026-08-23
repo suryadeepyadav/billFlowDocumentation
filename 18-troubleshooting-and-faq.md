@@ -188,7 +188,7 @@ Reduce the allocation or allocate remaining amount to other open Invoices. Any u
 
 ## Can I Allocate an Existing Customer Advance Later?
 
-Current BillFlow UI does not provide a later Customer Receipt advance-allocation action. Allocate correctly during Receipt entry and monitor unallocated receipt reporting. Contact an authorized administrator for correction policy rather than creating duplicate Receipts.
+Current BillFlow UI does not provide a later Customer Receipt advance-allocation action. The advance still reduces the Customer's overall account balance but does not change an individual Invoice payment status. Allocate correctly during Receipt entry and monitor unallocated receipt reporting. Contact an authorized administrator for correction policy rather than creating duplicate Receipts.
 
 ## Why Does Customer Outstanding Still Include Opening Balance?
 

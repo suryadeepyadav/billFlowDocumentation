@@ -9,7 +9,7 @@ A Sent proposal approved by the Customer. It is locked from ordinary editing and
 A master or user available for new work. Active does not mean every related subscription feature or permission is enabled.
 
 **Advance - Customer**  
-The unallocated portion of a Receipt. It is recorded against the Customer but not tied to an Invoice. Current BillFlow Receipt UI does not provide a later allocation workflow for this amount.
+The unallocated portion of a Receipt. It is recorded against the Customer and reduces the Customer's overall account balance, but is not tied to an Invoice. Current BillFlow Receipt UI does not provide a later allocation workflow for this amount.
 
 **Advance - Employee**  
 Money paid to an employee before salary and recovered through future Posted payroll runs.
@@ -351,7 +351,7 @@ Unique workspace identifier. It is derived through the authenticated flow and is
 ## U
 
 **Unallocated Amount**  
-Receipt/Payment amount not tied to an Invoice/Purchase. It represents party advance.
+Receipt/Payment amount not tied to an Invoice/Purchase. It represents party advance and is included in the party's overall account balance.
 
 **Unit**  
 Measurement used for Items, such as Nos, Kg, Meter, or Hour, with allowed decimal precision.
