@@ -281,6 +281,65 @@ Available actions follow the same View, Submit, Approve, and Reopen rules as Dai
 
 This report helps validate attendance before payroll. It is not a payslip and does not calculate salary amounts.
 
+# Monthly Attendance Register
+
+## What Is It Used For?
+
+**Monthly register** is a print-style attendance sheet. It keeps one employee on each row and one column for every calendar day from 1 to 31, matching a conventional paper attendance register.
+
+Use it when the business needs a month-wise attendance record that can be downloaded, printed, signed, or shared with payroll and management. It does not replace the existing Monthly Report; the Monthly Report remains the faster totals view.
+
+## Register Filters
+
+| Field | Required | Purpose |
+| --- | --- | --- |
+| Month | Yes | Calendar month shown in the register |
+| Department | No | Shows employees from only one department |
+| Payroll run | No | Adds rate, amount, advance, and balance columns from a payroll run covering exactly that calendar month |
+| Approved only | No | Excludes Draft and Submitted attendance entries from the register |
+
+Payroll run selection is shown only to users with Payroll access. Users without Payroll access can still create and export the attendance-only register.
+
+## Attendance Codes
+
+| Code | Meaning |
+| --- | --- |
+| P | Present |
+| A | Absent |
+| HD | Half Day |
+| L | Paid Leave |
+| UL | Unpaid Leave |
+| WO | Weekly Off |
+| H | Holiday |
+| - | No attendance record saved for that date |
+
+For months shorter than 31 days, the extra day cells remain blank and shaded. This preserves the standard register layout without suggesting that those dates exist.
+
+## Payroll Columns
+
+When a matching payroll run is selected, the register includes the payroll calculation already saved for each employee:
+
+- **OT hours**: Approved overtime hours.
+- **OT rate**: Hourly overtime rate used by payroll.
+- **Total days**: Payroll payable-day units.
+- **Rate**: Employee's saved daily wage or monthly salary rate.
+- **Amount**: Gross payroll amount before deductions.
+- **Advance**: Advance recovery included in the payroll calculation.
+- **Balance**: Salary amount still unpaid after recorded salary payments.
+- **Signature**: Blank column intended for a physical signature after printing.
+
+Do not select a different-month payroll run. BillFlow only accepts a run whose start and end dates exactly match the selected calendar month.
+
+## Download Excel
+
+Select **Download Excel** after generating the register. The `.xlsx` file preserves:
+
+- The company name and selected month heading.
+- Employee identity columns and all 31 day columns.
+- Colour-coded attendance codes and a code legend.
+- Payroll summary and signature columns where payroll data is available.
+- Frozen employee columns, repeatable header rows, borders, and landscape print settings for a wide attendance sheet.
+
 ## Permissions
 
 | Task | Required Attendance permission |
@@ -305,6 +364,7 @@ The exact action button appears only when the user's permission and the record s
 7. Submit when complete.
 8. Have an authorized user approve attendance and overtime.
 9. Review the Monthly Report before creating payroll.
+10. Generate the Monthly Register and download it when a printable attendance record is needed.
 
 ## Common Mistakes
 
