@@ -7,6 +7,7 @@ Purchases record goods/services received from suppliers. Payments record money p
 ## Important Terms
 
 - **Supplier invoice number**: The vendor's own bill number, separate from BillFlow's generated Purchase number.
+- **Draft**: An editable document with no payable, allocation, or stock effect.
 - **Receive directly at site**: Posts stock items into the selected site's stock instead of the warehouse.
 - **Payment allocation**: Amount assigned to a specific purchase.
 - **Supplier advance**: Posted payment amount not currently allocated to purchases, or net payment above payable balance.
@@ -17,9 +18,9 @@ Purchases record goods/services received from suppliers. Payments record money p
 
 ## What Is the Purchase Module?
 
-A purchase is a posted supplier document. It creates a payable and may increase stock.
+A purchase becomes a supplier transaction when it is posted. A posted Purchase creates a payable and may increase stock.
 
-The current interface posts a purchase immediately. There is no draft/edit stage after posting.
+Saving the form creates an editable Draft. Review its supplier, location, lines, tax, and totals before using the separate Post action.
 
 ## Purchase Header Fields
 
@@ -67,9 +68,9 @@ You can quick-add an item or service. Select the item master for physical stock;
 
 BillFlow:
 
-1. Generates a Purchase number.
-2. Stores supplier, line, tax, and terms snapshots.
-3. Sets Status to POSTED and Payment status to PENDING.
+1. Revalidates the saved Draft.
+2. Sets Status to POSTED, records who posted it and when, and locks editing.
+3. Sets Payment status to PENDING.
 4. Sets Amount paid to 0 and Balance to the total.
 5. Adds the balance to supplier payables.
 6. Posts PURCHASE_IN movements for selected stock items.
@@ -85,6 +86,7 @@ Service and free-text lines do not create stock movement.
 
 ### Document Status
 
+- **DRAFT**: Editable; no payable or stock effect.
 - **POSTED**: Active payable and stock effect.
 - **CANCELLED**: Reversed historical purchase.
 
@@ -114,13 +116,13 @@ If the result is positive, it is Outstanding. If negative, the absolute amount i
 
 The formatted print contains company and supplier details, purchase references, site when present, lines, applicable taxes, totals, and terms/notes. Zero-value optional rows are hidden.
 
+A Draft purchase can be printed for review, but it carries a `DRAFT` watermark and **DRAFT PURCHASE - NOT POSTED** disclaimer. It has no supplier-payable or inventory effect. Posted purchases print cleanly, while Cancelled copies carry a `CANCELLED` watermark.
+
 ## Cancel a Purchase
 
-A purchase can be cancelled only when:
+A purchase can be cancelled when:
 
-- Status is POSTED.
-- Amount paid is zero.
-- The original stock can be reversed from its location.
+- It is a Draft that should be discarded; or it is Posted with Amount paid zero and stock available at the original location.
 - The user has Cancel permission.
 
 If a supplier payment is allocated to it, cancel that payment first. Cancellation posts PURCHASE_REVERSAL stock OUT at the original warehouse/site location. If the received stock has already been consumed, issued, sold, or returned and is insufficient, cancellation is rejected.
@@ -130,6 +132,8 @@ If a supplier payment is allocated to it, cancel that payment first. Cancellatio
 ## What Is the Payment Module?
 
 A Payment records money paid to a supplier. It can be allocated to one or more open purchases or stored as unallocated supplier advance.
+
+Saving creates an editable Draft and does not yet reduce supplier payable balances. Allocations are applied only after **Post payment** is confirmed.
 
 ## Payment Fields
 
@@ -183,12 +187,16 @@ This updates purchase balances while preserving the original payment amount and 
 
 BillFlow:
 
-1. Generates the payment number.
-2. Sets Status to POSTED.
+1. Revalidates every allocation against the latest posted purchase balances.
+2. Sets Status to POSTED, records who posted it and when, and locks editing.
 3. Applies allocations to purchases.
 4. Recalculates each purchase's Amount paid, Balance, and Payment status.
 5. Stores any remainder as Unallocated amount.
 6. Reduces the supplier's net payable balance.
+
+## Print a Payment
+
+A Draft payment may be printed for checking, but it is marked **DRAFT PAYMENT - NOT POSTED** and has no supplier-payment, allocation, or payable-balance effect. Posted payments print without a lifecycle watermark. Cancelled payment copies carry a `CANCELLED` watermark for reference.
 
 ## Cancel a Payment
 
@@ -235,7 +243,9 @@ Purchases and Payments use separate modules and permissions:
 | --- | --- |
 | List | List |
 | Preview/outstanding | View |
-| Post purchase/payment | Insert |
+| Create a Draft | Insert |
+| Edit a Draft | Update |
+| Post a Draft | Approve |
 | Allocate existing supplier advance | Update on Payments |
 | Cancel | Cancel |
 | Print | Print |
@@ -247,10 +257,10 @@ Inventory and Site behavior also requires the related licensed features where th
 
 1. Verify/create supplier and GST state code.
 2. Verify item masters and purchase rates.
-3. Post purchase at Warehouse or the correct Site.
-4. Confirm stock movement and purchase balance.
-5. Record the payment with actual method/reference.
-6. Allocate to purchases.
+3. Save and review the Purchase Draft, including Warehouse or Site location.
+4. Confirm Post, then verify stock movement and purchase balance.
+5. Record and review the Payment Draft with its actual method/reference.
+6. Allocate it to purchases and confirm Post.
 7. Allocate any prior supplier advance where appropriate.
 8. Review Supplier Outstanding and reports.
 

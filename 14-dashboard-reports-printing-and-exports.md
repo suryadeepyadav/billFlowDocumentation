@@ -271,6 +271,14 @@ Quotation, Invoice, Purchase, Receipt, and related print actions open a dedicate
 
 CGST, SGST, IGST, Discount, and other optional total lines are hidden when they are zero, keeping documents clean.
 
+Document lifecycle remains visible on printed copies:
+
+- **Draft**: `DRAFT` watermark, status in the title, and a document-specific disclaimer explaining that no posting, allocation, balance, or stock effect exists.
+- **Posted/active**: Clean business-document layout without a lifecycle watermark.
+- **Cancelled**: `CANCELLED` watermark and reference-only disclaimer.
+
+Draft Receipt output specifically says it is not proof of payment. Printing does not post a document or change any business data.
+
 Browser pop-up blocking can prevent the print window from opening. Allow pop-ups for the BillFlow domain and try again.
 
 ## Print Review Checklist

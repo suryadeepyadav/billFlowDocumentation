@@ -173,13 +173,15 @@ Select **Create invoice** to open Sales Invoices with:
 - Lines and values copied for review
 - Notes and terms copied
 
-The invoice is not posted until you review and submit the invoice form. Stock is checked when the invoice is posted, not when the quotation is accepted.
+Submitting the invoice form saves an editable Draft. Review it, then use the confirmed Post action; stock is checked at posting, not when the quotation is accepted or the Draft is saved.
 
 See [Invoices and Receipts](07-invoices-and-receipts.md).
 
 ## Print a Quotation
 
 Use the Print action to open the formatted document. The print includes company identity/logo, customer, quotation details, lines, applicable tax totals, notes, and terms. Use the browser print dialog to print or save as PDF.
+
+A Draft quotation prints with a prominent `DRAFT` watermark and **DRAFT QUOTATION - NOT FINAL** notice. A Cancelled quotation prints with a `CANCELLED` watermark. Sent and Accepted quotation copies keep the normal clean layout.
 
 Allow pop-ups for BillFlow if the print window does not open.
 

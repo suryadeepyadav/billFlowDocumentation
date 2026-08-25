@@ -184,6 +184,8 @@ These are different outputs:
 - **Document Print** prints a formatted quotation, invoice, receipt, purchase, payment, payroll summary, or payslip.
 - Document print uses company details and the uploaded company logo when available.
 - Zero-value optional totals such as CGST, SGST, IGST, Discount, and Round Off are omitted from applicable printed documents.
+- Draft financial documents may be printed for checking, but they show a `DRAFT` watermark and a no-effect disclaimer. They are not proof that an invoice, receipt, purchase, or payment was posted.
+- Cancelled document copies show a `CANCELLED` watermark. Posted documents print without a lifecycle watermark.
 
 If no print window opens, allow pop-ups for the BillFlow site. See [Dashboard, Reports, Printing, and Exports](14-dashboard-reports-printing-and-exports.md).
 

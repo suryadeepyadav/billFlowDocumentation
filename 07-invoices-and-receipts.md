@@ -7,6 +7,7 @@ Sales Invoices record amounts billed to customers. Receipts record money receive
 ## Important Terms
 
 - **Posted**: The document is final and has affected balances; an invoice may also affect stock.
+- **Draft**: An editable document that has a reserved number but no balance, allocation, or stock effect.
 - **Pending/Unpaid**: No receipt amount has been allocated to the invoice.
 - **Partial**: Some, but not all, of the invoice has been paid.
 - **Paid**: Invoice balance is zero.
@@ -21,9 +22,9 @@ Sales Invoices record amounts billed to customers. Receipts record money receive
 
 ## What Is the Invoice Module?
 
-An invoice is a posted customer sales document. It creates a receivable and, for selected stock items, removes quantity from warehouse stock.
+An invoice becomes a customer sales transaction when it is posted. A posted invoice creates a receivable and, for selected stock items, removes quantity from warehouse stock.
 
-Unlike quotations, invoices are posted immediately when saved. The current interface does not provide a draft or edit stage for an invoice.
+Saving the form creates an editable Draft. Review and update the Draft as needed, then use the separate Post action when the invoice is final.
 
 ## Ways to Create an Invoice
 
@@ -33,7 +34,7 @@ Open **Sales > Sales Invoices**, select the plus icon, and enter the transaction
 
 ### From an Accepted Quotation
 
-Use **Create invoice** on an accepted quotation. BillFlow opens the invoice form with the customer, site, quotation link, lines, notes, and terms prefilled. Review every value before posting.
+Use **Create invoice** on an accepted quotation. BillFlow opens the invoice form with the customer, site, quotation link, lines, notes, and terms prefilled. Save it as a Draft, review every value, and post it when final.
 
 ## Invoice Header Fields
 
@@ -81,9 +82,9 @@ Use the plus icon to add lines and the minus icon to remove them. At least one l
 
 BillFlow:
 
-1. Generates the invoice number.
-2. Stores party, line, tax, and terms snapshots.
-3. Sets document Status to POSTED.
+1. Revalidates the saved Draft and available warehouse stock.
+2. Sets document Status to POSTED and records who posted it and when.
+3. Locks the document against editing.
 4. Sets Payment status to PENDING.
 5. Sets Amount paid to 0 and Balance to the invoice total.
 6. Adds the balance to customer receivables.
@@ -97,8 +98,11 @@ Posting is rejected if warehouse stock is insufficient for one or more selected 
 
 ### Document Status
 
+- **DRAFT**: Editable; no receivable or stock effect.
 - **POSTED**: Active invoice affecting receivables and stock.
 - **CANCELLED**: Reversed invoice retained in history.
+
+Use **Edit invoice draft** to revise a Draft. Use **Post invoice** only after review; the confirmation explains the effects and posting cannot be undone by editing.
 
 ### Payment Status
 
@@ -133,14 +137,17 @@ See [Customer and Supplier Statements](19-customer-and-supplier-statements.md) f
 
 Use Print to open the formatted invoice. It includes company logo/details, customer, date, line details, applicable taxes, total, notes, and terms. Optional zero-value Discount, CGST, SGST, IGST, and Round Off rows are hidden.
 
+- A Draft can be printed for review, but it carries a `DRAFT` watermark and **DRAFT INVOICE - NOT POSTED** disclaimer. It has no receivable or inventory effect.
+- A Posted invoice prints as the clean active business document.
+- A Cancelled invoice can be retained or shared for audit reference and carries a `CANCELLED` watermark and disclaimer.
+
 Use the browser print dialog to print or save as PDF.
 
 ## Cancel an Invoice
 
-An invoice can be cancelled only when:
+An invoice can be cancelled when:
 
-- Its document status is POSTED.
-- Amount paid is zero.
+- It is a Draft that should be discarded; or it is Posted and Amount paid is zero.
 - The user has Cancel permission.
 
 If a receipt is allocated, cancel that receipt first. Then cancel the invoice.
@@ -159,6 +166,8 @@ The invoice cannot be edited after cancellation.
 ## What Is the Receipt Module?
 
 A receipt records money received from a customer. It may be allocated to one or more open invoices during entry.
+
+Saving creates an editable Draft and does not yet change invoice balances. The allocation is applied only after the user confirms **Post receipt**.
 
 ## Receipt Fields
 
@@ -231,16 +240,19 @@ The current Receipt list does not provide a later **Allocate advance** action. T
 
 BillFlow:
 
-1. Generates the receipt number.
-2. Sets receipt Status to POSTED.
-3. Applies each allocation to the target invoice.
-4. Recalculates invoice Amount paid, Balance, and Payment status.
-5. Stores any remainder as Unallocated amount.
-6. Updates customer and site-related reporting where applicable.
+1. Revalidates every allocation against the latest posted invoice balances.
+2. Sets receipt Status to POSTED and records who posted it and when.
+3. Locks the receipt against editing.
+4. Applies each allocation to the target invoice.
+5. Recalculates invoice Amount paid, Balance, and Payment status.
+6. Stores any remainder as Unallocated amount.
+7. Updates customer and site-related reporting where applicable.
 
 ## Print a Receipt
 
 The receipt print shows company, customer, receipt amount, allocations, applicable unallocated amount, payment context, and notes. Zero-value optional rows are omitted.
+
+A Draft receipt can be printed for review, but it is marked **DRAFT RECEIPT - NOT PROOF OF PAYMENT** and has no customer-balance or invoice-allocation effect. Posted receipts print cleanly. Cancelled receipt copies carry a `CANCELLED` watermark.
 
 ## Cancel a Receipt
 
@@ -263,7 +275,9 @@ Invoices and Receipts have separate feature and permission checks. Typical actio
 | --- | --- |
 | List | List |
 | Preview/detail | View |
-| Post new document | Insert |
+| Create a Draft | Insert |
+| Edit a Draft | Update |
+| Post a Draft | Approve |
 | Cancel | Cancel |
 | Print business document | Print |
 | Export list | Export where enabled |
@@ -276,9 +290,10 @@ Quick Add also requires Insert permission for the relevant master.
 2. Confirm the customer and actual money received.
 3. Select the correct payment method and reference.
 4. Allocate against specific invoices.
-5. Verify Unallocated before posting.
-6. Print/send the receipt if required.
-7. Recheck Customer Outstanding.
+5. Save and review the Draft.
+6. Confirm Post after verifying Unallocated.
+7. Print/send the receipt if required.
+8. Recheck Customer Outstanding.
 
 ## Common Mistakes
 

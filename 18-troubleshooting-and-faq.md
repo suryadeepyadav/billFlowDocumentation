@@ -176,7 +176,7 @@ No. A Quotation is a proposal. Posted Invoice creates receivable and Stock movem
 
 ## Why Can I Not Edit a Saved Invoice?
 
-Invoices post immediately. They create receivable and may reduce Warehouse stock. To correct a material mistake, cancel dependencies and the Invoice, then create a replacement.
+Invoices save as editable Drafts. Posting is separately confirmed and creates the receivable and any Warehouse stock effect. Edit mistakes while Draft; after posting, cancel dependencies and the Invoice before creating a corrected replacement.
 
 ## Why Can I Not Cancel an Invoice?
 
@@ -198,7 +198,7 @@ Customer Opening Balance is a pre-BillFlow receivable and is not an Invoice allo
 
 ## Why Can I Not Edit a Saved Purchase?
 
-Purchases post immediately and may add stock/create payable. Correct through controlled cancellation and replacement.
+Purchases save as editable Drafts. Posting is separately confirmed and may add stock/create payable. Edit mistakes while Draft; correct Posted records through controlled cancellation and replacement.
 
 ## Why Can I Not Cancel a Purchase?
 

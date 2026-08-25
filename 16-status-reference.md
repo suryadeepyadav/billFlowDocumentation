@@ -61,6 +61,7 @@ Acceptance is valid from Sent, not Draft. Accepted cancellation is restricted wh
 
 | Status | Meaning |
 | --- | --- |
+| Draft | Editable document; no receivable or Stock movement exists |
 | Posted | Active receivable and, for Stock items, Warehouse stock movement exists |
 | Cancelled | Receivable and eligible stock effect have been reversed |
 
@@ -78,6 +79,7 @@ An Invoice cannot be cancelled while its paid amount is greater than zero. Cance
 
 | Status | Meaning |
 | --- | --- |
+| Draft | Editable Receipt; no Invoice allocation or Customer balance effect exists |
 | Posted | Active Customer receipt/allocation |
 | Cancelled | Receipt allocations and effects reversed |
 
@@ -92,6 +94,7 @@ Allocation values are separate:
 
 | Status | Meaning |
 | --- | --- |
+| Draft | Editable Purchase; no payable or Stock receipt exists |
 | Posted | Active Supplier payable and eligible Stock receipt exists |
 | Cancelled | Payable and eligible stock effect reversed |
 
@@ -109,6 +112,7 @@ A Purchase cannot be cancelled while its paid amount is greater than zero. Stock
 
 | Status | Meaning |
 | --- | --- |
+| Draft | Editable Payment; no Purchase allocation or Supplier balance effect exists |
 | Posted | Active Supplier Payment/allocation |
 | Cancelled | Allocations and payment effect reversed |
 
@@ -249,6 +253,7 @@ Changing the active Financial Year does not rewrite posted document numbers or d
 - Draft generally means editable and not financially posted.
 - Posted generally means business/stock/balance effects exist.
 - Cancelled means retained history plus reversal, not deletion.
+- A printed Draft remains a Draft: its watermark/disclaimer identifies a review copy, and printing never posts it or creates financial, allocation, or stock effects.
 - Paid/Partial/Pending describes settlement, not document validity.
 - Active/Inactive controls future selection, not historical visibility.
 - Approved attendance can enter payroll; Locked attendance cannot be corrected until payroll reversal.

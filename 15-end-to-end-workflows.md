@@ -155,7 +155,7 @@ Use direct Invoice creation when no quotation is required.
 Customer -> Posted Invoice -> Receipt allocation -> Paid/Partially Paid
 ```
 
-Review tax and Warehouse stock before saving because the Invoice posts immediately.
+Save the Invoice as a Draft, review tax and Warehouse stock, then use the confirmed Post action. Saving alone has no receivable or stock effect.
 
 # Procure-to-Pay Workflow
 
