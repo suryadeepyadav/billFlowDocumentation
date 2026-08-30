@@ -252,6 +252,23 @@ BillFlow enforces the user limit during user creation. Other limits are synchron
 
 Never enable a frontend menu without the matching backend entitlement. BillFlow checks features on the server as well as in navigation.
 
+## Renew an Expired or Inactive Subscription
+
+After a correct BillFlow username and password are verified for an expired or inactive mapped subscription:
+
+1. BillFlow opens the License Expired page without creating a normal application session.
+2. Select **Manage subscription**.
+3. BillFlow securely opens the matching SYV Client subscription page without asking for another portal login.
+4. Complete the renewal or activation in SYV Client.
+5. SYV Client returns to BillFlow's license return page.
+6. BillFlow checks its own latest synchronized subscription status.
+7. If synchronization is still pending, wait briefly and select **Check again**.
+8. When active, sign in to BillFlow again if the original expired login did not have a normal session.
+
+The renewal identity lasts about five minutes and is stored only for the current browser tab. It cannot open normal BillFlow APIs. No username, password, Tenant ID, license key, renewal token, or portal secret is placed in the browser URL.
+
+For a Missing License or Product Mismatch, use the normal portal/support option and ask an administrator to correct the tenant/product mapping. Those conditions are not treated as ordinary renewals.
+
 # Access Troubleshooting
 
 ## Menu Is Missing
