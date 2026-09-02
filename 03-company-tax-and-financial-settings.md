@@ -169,6 +169,8 @@ Print templates control the default layout used for each supported transaction d
 
 The saved choice is used automatically whenever that document type is printed. BillFlow opens the browser print window directly, without asking the user to choose a template each time. To use another format, update the default here before printing. Old documents use the current tenant default because template selection does not alter or become part of the transaction record.
 
+On phones and small tablets, choose the format from the **Print template** select. The sample A4 page scales to the available screen width; the saved output and actual printed document are unchanged.
+
 All templates retain the same financial values and lifecycle state. Changing a template never recalculates GST, stock, balances, or ledgers. Missing or retired template values safely fall back to Classic.
 
 The Invoice heading changes presentation only. Select **INVOICE** for a general invoice heading or **TAX INVOICE** when the printed document should carry that title. GST calculations and transaction data are unchanged, and missing values safely default to **INVOICE**.
