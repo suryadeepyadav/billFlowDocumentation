@@ -261,13 +261,23 @@ The user needs Reports Export permission.
 
 ## Document Printing
 
-Quotation, Invoice, Purchase, Receipt, and related print actions open a dedicated printable document. Prints use:
+Quotation, Invoice, Receipt, Purchase, and Payment print actions use the tenant default configured in **Settings > Print templates** and open the browser print window directly. No template chooser is shown during the transaction workflow. To use another format, an authorized user must change that document type's default in Settings.
+
+Available formats are:
+
+- **Classic**: the familiar approved BillFlow format.
+- **Compact GST**: a bordered monochrome, space-efficient format with a prominent logo/company header. Its item table omits the per-line GST and Amount columns; tax components and the document total remain visible in the totals section.
+- **Modern Branded**: stronger logo placement using the tenant primary color.
+
+Every format uses:
 
 - Company profile and uploaded logo
 - Party/document details
 - Line items and totals
 - Applicable terms/notes
 - Only non-zero optional tax/discount rows
+
+Invoice output uses the tenant's saved **Invoice heading** from **Settings > Print templates**. Administrators can switch it between **INVOICE** and **TAX INVOICE**; the choice changes the printed title only and does not change GST calculations or accounting behavior.
 
 CGST, SGST, IGST, Discount, and other optional total lines are hidden when they are zero, keeping documents clean.
 
@@ -278,6 +288,8 @@ Document lifecycle remains visible on printed copies:
 - **Cancelled**: `CANCELLED` watermark and reference-only disclaimer.
 
 Draft Receipt output specifically says it is not proof of payment. Printing does not post a document or change any business data.
+
+Select the document's print action. BillFlow prepares the document with its saved template, waits for the company logo to load, and then opens the browser print dialog. Choose the browser's Save as PDF destination when a PDF file is required.
 
 Browser pop-up blocking can prevent the print window from opening. Allow pop-ups for the BillFlow domain and try again.
 

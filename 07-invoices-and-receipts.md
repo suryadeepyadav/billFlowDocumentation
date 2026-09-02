@@ -137,7 +137,7 @@ See [Customer and Supplier Statements](19-customer-and-supplier-statements.md) f
 
 Use Print to open the formatted invoice. It includes company logo/details, customer, date, line details, applicable taxes, total, notes, and terms. Optional zero-value Discount, CGST, SGST, IGST, and Round Off rows are hidden.
 
-- A Draft can be printed for review, but it carries a `DRAFT` watermark and **DRAFT INVOICE - NOT POSTED** disclaimer. It has no receivable or inventory effect.
+- A Draft can be printed for review, but it carries a `DRAFT` watermark and a **DRAFT INVOICE - NOT POSTED** or **DRAFT TAX INVOICE - NOT POSTED** disclaimer, according to the invoice heading selected in **Settings > Print templates**. It has no receivable or inventory effect.
 - A Posted invoice prints as the clean active business document.
 - A Cancelled invoice can be retained or shared for audit reference and carries a `CANCELLED` watermark and disclaimer.
 

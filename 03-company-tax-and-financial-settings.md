@@ -4,7 +4,7 @@
 
 Settings defines the tenant's identity, tax behavior, document numbering, financial years, appearance, and audit visibility. These values affect documents across BillFlow, so administrators should configure them before normal transaction entry.
 
-The available tabs are Company, Tax, Financial years, Sequences, Audit, Appearance, and Subscription.
+The available tabs are Company, Tax, Financial years, Sequences, Print templates, Audit, Appearance, and Subscription.
 
 ## Company Settings
 
@@ -18,9 +18,9 @@ Company settings provide the identity printed on quotations, invoices, receipts,
 | --- | --- | --- | --- |
 | Business name | Yes | The normal trading name | Primary company name in BillFlow and printed documents |
 | Legal name | No | Registered legal entity name | Used where a formal name is useful |
-| Email | No | Valid company email | Company contact detail |
-| Phone | No | Primary company phone | Company contact detail |
-| Alternate phone | No | Secondary phone | Additional contact detail |
+| Email | No | Valid company email | Company contact detail; shown in the Compact GST header |
+| Phone | No | Primary company phone | Company contact detail; shown at the right of the Compact GST header |
+| Alternate phone | No | Secondary phone | Additional Compact GST header contact number |
 | Address | No | Registered or operating address | Printed company address |
 | City | No | Business city | Address and print output |
 | State | No, but important for GST | Full state name | Company location |
@@ -28,7 +28,7 @@ Company settings provide the identity printed on quotations, invoices, receipts,
 | Pincode | No | Valid postal code | Company address |
 | GSTIN | No unless GST-registered operation requires it | 15-character GST identification number | Printed tax identity; lowercase input is normalized to uppercase |
 | PAN | No | 10-character PAN | Printed/legal identity; lowercase input is normalized to uppercase |
-| Business type | No | Example: Proprietorship, LLP, Private Limited | Descriptive company classification |
+| Business type | No | Example: Proprietorship, LLP, Private Limited | Descriptive company classification shown beneath the company name in Compact GST output |
 
 ### Company Logo
 
@@ -150,6 +150,29 @@ Supported sequence types include quotation, invoice, receipt, payment, purchase,
 - Padding changes presentation, not the underlying counter.
 - Save each sequence row separately using its save icon.
 
+## Print Templates
+
+Print templates control the default layout used for each supported transaction document. Quotation, Invoice, Receipt, Purchase, and Payment each have an independent default.
+
+1. Open **Settings > Print templates**.
+2. Select the document type tab.
+3. Choose **Classic**, **Compact GST**, or **Modern Branded**.
+4. In the Invoice tab, select **INVOICE** or **TAX INVOICE** in **Invoice heading**.
+5. Review the live sample preview.
+6. Repeat for other document types and select **Save print settings**.
+
+| Template | Best use |
+| --- | --- |
+| Classic | Familiar client-approved BillFlow layout with a restrained accent |
+| Compact GST | Dense bordered monochrome layout with a prominent company header and a simplified line table without per-line GST and Amount columns |
+| Modern Branded | Stronger logo placement and use of the tenant primary color |
+
+The saved choice is used automatically whenever that document type is printed. BillFlow opens the browser print window directly, without asking the user to choose a template each time. To use another format, update the default here before printing. Old documents use the current tenant default because template selection does not alter or become part of the transaction record.
+
+All templates retain the same financial values and lifecycle state. Changing a template never recalculates GST, stock, balances, or ledgers. Missing or retired template values safely fall back to Classic.
+
+The Invoice heading changes presentation only. Select **INVOICE** for a general invoice heading or **TAX INVOICE** when the printed document should carry that title. GST calculations and transaction data are unchanged, and missing values safely default to **INVOICE**.
+
 ## Audit Tab
 
 The Audit tab shows recent recorded events with:
@@ -201,6 +224,7 @@ Before going live, verify:
 6. The active financial year is correct.
 7. Every sequence preview is unique and uses the intended FY code.
 8. Default terms are suitable for customer documents.
+9. Each transaction type has the intended default print template.
 
 ## Common Mistakes
 
