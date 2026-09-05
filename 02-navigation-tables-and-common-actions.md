@@ -17,9 +17,31 @@ The sidebar is arranged by business area:
 | Workforce | Employees & Workers, Attendance, Payroll |
 | Administration | Reports, Payment Methods, Users & Permissions, Settings |
 
-Select a group to expand or collapse it. **Dashboard** is a primary menu item outside the groups.
+Select a group to expand or collapse it. **Home** and **Dashboard** are primary menu items outside the groups.
 
-On a small screen, use the menu icon in the top bar to open or close the drawer. Long page names may be shortened in the top bar, but the page itself still shows its full title.
+## Mobile Home and Bottom Navigation
+
+On phones and compact tablets, BillFlow opens **Home** after sign-in instead of loading the analytical Dashboard. Desktop users continue to open Dashboard first.
+
+Mobile Home contains every module available under the tenant subscription and the signed-in user's permissions. Features are arranged in compact cards under the same business groups used by the sidebar.
+
+- Select a feature card to open its list or workspace.
+- Select the plus icon on a card to open that module's primary creation form directly.
+- Use **Find a feature** to filter the launcher by module, action, or common business term.
+- **Quick access** shows recently opened modules. Before any history exists, it shows relevant daily-work modules available to the user.
+
+The fixed mobile navigation bar provides:
+
+| Action | Purpose |
+| --- | --- |
+| Home | Return to the feature launcher |
+| Add | Open all permitted create actions, grouped by business area |
+| Dashboard | Open financial and operational analytics when permitted |
+| More | Open the complete sidebar navigation drawer |
+
+The Add and Dashboard destinations are hidden when the user does not have the required access. Selecting a feature from More closes the drawer automatically. Long page names may be shortened in the top bar, but the page itself still shows its full title.
+
+Home history is stored only in the current browser and is separated by tenant and user. It does not change permissions or subscription access.
 
 ## Why a Menu May Be Missing
 
@@ -41,6 +63,8 @@ Most list pages use a compact header:
 - Hover an icon to read its tooltip on devices that support hover.
 
 A disabled icon means the action is not valid for the record or the user lacks permission.
+
+Mobile Home and Quick Add use the same creation forms as the page-level plus icons. A direct creation shortcut never bypasses backend permission checks.
 
 ## Shared Data Table Toolbar
 
