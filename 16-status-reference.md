@@ -55,6 +55,17 @@ Subscription feature flags and user permissions still determine which modules ca
 
 Acceptance is valid from Sent, not Draft. Accepted cancellation is restricted when a linked Invoice or Site exists.
 
+# Proforma Invoices
+
+| Status | Meaning | Normal next action |
+| --- | --- | --- |
+| Draft | Internal Standard or RA preparation; no accounting effect | Edit, issue, cancel, delete, print, export, or duplicate |
+| Issued | Commercial/tax/party snapshots locked; still no accounting effect | Convert to Invoice, print/export, duplicate, or cancel when eligible |
+| Converted | One linked editable Sales Invoice draft exists | Review and post the Sales Invoice; Proforma stays locked |
+| Cancelled | Historical copy with no active commercial effect | View, print/export, or duplicate |
+
+For RA documents, only the latest unconverted issued RA can be cancelled because later Previous values depend on earlier Current claims.
+
 # Sales Invoices
 
 ## Document Status

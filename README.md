@@ -42,6 +42,7 @@ Day-to-day users can begin with [End-to-End Workflows](15-end-to-end-workflows.m
 | [18 - Troubleshooting and FAQ](18-troubleshooting-and-faq.md) | Common user problems, causes, checks, and safe corrections |
 | [19 - Customer and Supplier Statements](19-customer-and-supplier-statements.md) | Live balances, financial dashboards, date-range statements, ledgers, history, print, and CSV export |
 | [20 - Measurement Sheets](20-measurement-sheets.md) | Pipe, count, length, area and volume registers; units, approval, corrections, print/PDF, and Excel |
+| [21 - Proforma Invoices and Progressive RA Billing](21-proforma-invoices.md) | Standard Proformas, Work Orders, cumulative RA claims, Measurement Sheet import, conversion, print, and Excel |
 
 ## How Field Requirements Are Written
 

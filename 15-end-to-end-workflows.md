@@ -102,6 +102,8 @@ Accepted is valid only for a Sent quotation; a Draft is still internal preparati
 
 Create an Invoice from the Accepted quotation. Review the copied Customer, Site, lines, tax, dates, and amounts before posting.
 
+When the customer needs an invoice-style commercial copy before accounting, create a Standard Proforma from the Accepted quotation instead. Issue it, then convert it to an editable Sales Invoice draft after confirmation. The Proforma itself does not create outstanding, stock, site revenue, ledger, or GST-report effects.
+
 Posting the Invoice:
 
 - Creates a Customer receivable.

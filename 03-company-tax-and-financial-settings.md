@@ -29,6 +29,11 @@ Company settings provide the identity printed on quotations, invoices, receipts,
 | GSTIN | No unless GST-registered operation requires it | 15-character GST identification number | Printed tax identity; lowercase input is normalized to uppercase |
 | PAN | No | 10-character PAN | Printed/legal identity; lowercase input is normalized to uppercase |
 | Business type | No | Example: Proprietorship, LLP, Private Limited | Descriptive company classification shown beneath the company name in Compact GST output |
+| Bank name | No | Tenant bank name | Printed on Progressive/RA Proforma output |
+| Branch | No | Bank branch | Printed with Proforma bank details |
+| Account holder name | No | Name registered on the account | Helps the customer verify the beneficiary |
+| Account number | No | Receiving account number | Printed on Proforma output; restrict Settings access appropriately |
+| IFSC code | No | Indian bank IFSC | Normalized to uppercase and printed on Proforma output |
 
 ### Company Logo
 
@@ -140,7 +145,7 @@ A sequence generates unique document identifiers. Examples include quotation num
 | Padding | Yes; positive integer | Minimum digits in the counter, such as 4 for `0001` |
 | Preview | Calculated | Example of the next generated number |
 
-Supported sequence types include quotation, invoice, receipt, payment, purchase, expense, site, fund transfer, material issue, work history, employee, work location, shift, payroll, employee advance, and salary payment.
+Supported sequence types include quotation, Proforma Invoice, invoice, receipt, payment, purchase, expense, site, fund transfer, material issue, work history, employee, work location, shift, payroll, employee advance, and salary payment.
 
 ### Sequence Safety
 
@@ -152,7 +157,7 @@ Supported sequence types include quotation, invoice, receipt, payment, purchase,
 
 ## Print Templates
 
-Print templates control the default layout used for each supported transaction document. Quotation, Invoice, Receipt, Purchase, and Payment each have an independent default.
+Print templates control the default layout used for each supported transaction document. Quotation, Proforma Invoice, Invoice, Receipt, Purchase, and Payment each have an independent default. Progressive/RA Proformas always use their purpose-built landscape register.
 
 1. Open **Settings > Print templates**.
 2. Select the document type tab.
